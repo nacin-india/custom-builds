@@ -45,3 +45,12 @@ jobs:
           cd pg_duckdb
           sudo make install
           
+
+      - name: Upload
+        uses: actions/upload-artifact@v4
+        with:
+          name: pg_duckdb
+          path: /usr/lib/postgresql/${{ env.POSTGRES_VERSION }}/
+
+
+          
