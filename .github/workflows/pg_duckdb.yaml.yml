@@ -19,8 +19,8 @@ jobs:
 
       - name: Install PostgreSQL ${{ env.POSTGRES_VERSION }}
         run: |
-          apt install postgresql-common
-          apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
+          sudo apt install postgresql-common
+          sudo apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
 
       - name: Build
         run: |
