@@ -1,0 +1,23 @@
+name: pg_duckdb
+
+on:
+  push:
+    branches:
+      - main
+
+
+jobs:
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: Checkout
+        run: |
+          git clone https://github.com/duckdb/pg_duckdb.git
+
+      - name: Build
+        run: |
+          cd pg_duckdb
+          ls
+          
