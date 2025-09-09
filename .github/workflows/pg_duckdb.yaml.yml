@@ -14,8 +14,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 
+
       - name: Checkout
         run: git clone https://github.com/duckdb/pg_duckdb.git
+
 
       - name: Install PostgreSQL ${{ env.POSTGRES_VERSION }}
         run: |
@@ -23,8 +25,18 @@ jobs:
           sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
           sudo apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
 
+
+      - name: Install Build Dependencies
+        run: |
+          sudo apt install \
+            build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev \
+            libxslt-dev libssl-dev libxml2-utils xsltproc pkg-config libc++-dev \
+            libc++abi-dev libglib2.0-dev libtinfo6 cmake libstdc++-12-dev \
+            liblz4-dev ninja-build
+          
+
       - name: Build
         run: |
           cd pg_duckdb
-          ls
+          make install
           
