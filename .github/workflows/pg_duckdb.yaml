@@ -26,14 +26,14 @@ jobs:
 
       - name: Install PostgreSQL ${{ env.POSTGRES_VERSION }}
         run: |
-          sudo apt install postgresql-common
+          sudo apt install postgresql-common -y
           sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
-          sudo apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
+          sudo apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }} -y
 
 
       - name: Install Build Dependencies
         run: |
-          sudo apt install \
+          sudo apt install -y \
             build-essential libreadline-dev zlib1g-dev flex bison libxml2-dev \
             libxslt-dev libssl-dev libxml2-utils xsltproc pkg-config libc++-dev \
             libc++abi-dev libglib2.0-dev libtinfo6 cmake libstdc++-12-dev \
