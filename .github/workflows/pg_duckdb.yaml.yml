@@ -5,6 +5,8 @@ on:
     branches:
       - main
 
+env:
+  POSTGRES_VERSION: 17
 
 jobs:
 
@@ -13,8 +15,12 @@ jobs:
     steps:
 
       - name: Checkout
+        run: git clone https://github.com/duckdb/pg_duckdb.git
+
+      - name: Install PostgreSQL ${{ env.POSTGRES_VERSION }}
         run: |
-          git clone https://github.com/duckdb/pg_duckdb.git
+          apt install postgresql-common
+          apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
 
       - name: Build
         run: |
