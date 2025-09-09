@@ -20,7 +20,7 @@ jobs:
       - name: Install PostgreSQL ${{ env.POSTGRES_VERSION }}
         run: |
           sudo apt install postgresql-common
-          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh
+          sudo /usr/share/postgresql-common/pgdg/apt.postgresql.org.sh -y
           sudo apt install postgresql-server-dev-${{ env.POSTGRES_VERSION }}
 
       - name: Build
